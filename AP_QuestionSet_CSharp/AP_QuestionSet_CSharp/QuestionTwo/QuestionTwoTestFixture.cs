@@ -1,13 +1,11 @@
-﻿using AP_QuestionSet_CSharp.Core.QuestionTwo;
-using NUnit.Framework;
-
-
-namespace AP_QuestionSet_CSharp.Tests.QuestionTwo
+﻿namespace AP_QuestionSet_CSharp.Tests.QuestionTwo
 {
+    using AP_QuestionSet_CSharp.Core.QuestionTwo;
+    using NUnit.Framework;
+
     [TestFixture]
     public class QuestionTwoTestFixture
     {
-
         [TestCase("taco cat", true)]
         [TestCase("some men interpret nine memos", true)]
         [TestCase("never odd or even", true)]

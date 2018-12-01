@@ -20,7 +20,6 @@ namespace AP_QuestionSet_CSharp.Tests.QuestionOne
 
             // Assert
             Assert.AreEqual(expected, actual);
-
         }
 
         [Test]
