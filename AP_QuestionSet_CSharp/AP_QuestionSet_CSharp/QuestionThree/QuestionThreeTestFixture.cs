@@ -33,5 +33,42 @@
             // Assert
             Assert.AreEqual(actualJSON, expectedJSON);
         }
+
+        [Test]
+        public void Convert_JSON_to_Object_Attack_On_Upatu()
+        {
+            // Arrange
+            const string input = @"{
+                                   'beets' : 'General',
+                                   'meets' : 'Kenobi',
+                                   'Your': {
+                                           'A' : {
+                                                'Bold': 'One'
+                                            },
+                                            'He': {
+                                                    'Is': {
+                                                          'Here': {
+                                                                'We':'Are Under Attack'
+                                                           }
+                                                    }
+                                            }
+                                    }
+                                  }";
+
+            const string schema = @"{
+                                    'Test_Rank': 'beets',
+                                    'Test_Jedi': 'meets',
+                                    'Grevious': 'Your.A.Bold',
+                                    'Send In the Clones':'Your.He.Is.Here.We'
+                                    }";
+
+           // const string expectedJSON = "{\"Test_Name\":\"Hello\",\"Test_Value\":\"There\"}";
+
+            // Act
+            string actualJSON = JsonMapper.Map(schema, input);
+
+            // Assert
+            Assert.AreEqual(actualJSON, "");
+        }
     }
 }
