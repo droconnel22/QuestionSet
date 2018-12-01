@@ -5,6 +5,7 @@
     public static class StringExtensions
     {
 
+        // O (N/2)
         public static string Reverse(this string input)
         {
             char[] array = input.ToCharArray();            
@@ -18,14 +19,16 @@
             return new string(array);
         }
 
+        // O (N)
         public static string ReverseAndInterweave(this string input)
         {
-            string reverse = input.Reverse(); //With Linq: new string(input.Reverse().ToArray());
-            string result = string.Empty;
+            string reverse = input.Reverse(); //With Linq: new string(input.Reverse().ToArray());  
+            
             IEnumerator<char> inputEnumerator = input.GetEnumerator();
             IEnumerator<char> inputReverseEnumerator = reverse.GetEnumerator();
-            
-            while(inputEnumerator.MoveNext() && inputReverseEnumerator.MoveNext())
+
+            string result = string.Empty;
+            while (inputEnumerator.MoveNext() && inputReverseEnumerator.MoveNext())
             {
                 result += inputEnumerator.Current.ToString() + inputReverseEnumerator.Current.ToString();
             }            
