@@ -9,9 +9,12 @@
     {
         public static string Map(string schema, string Json)
         {
-            var jsonValuesObj = JsonConvert.DeserializeObject<dynamic>(Json);
-            var jsonScheamDict = JsonConvert.DeserializeObject<Dictionary<string, string>>(schema);
-            var jsonResultDict = new Dictionary<string, object>();                   
+            if (string.IsNullOrEmpty(schema) || string.IsNullOrEmpty(Json))
+                throw new ArgumentNullException(nameof(schema));
+
+            dynamic jsonValuesObj = JsonConvert.DeserializeObject<dynamic>(Json);
+            Dictionary<string, string> jsonScheamDict = JsonConvert.DeserializeObject<Dictionary<string, string>>(schema);
+            Dictionary<string, object> jsonResultDict = new Dictionary<string, object>();                   
 
             foreach (var property in jsonScheamDict)
             {
@@ -26,8 +29,8 @@
                     }
                     catch (Exception exception)
                     {
-                        // if path is not specified the entire object schemea is wrong.
-                        //throw new ArgumentOutOfRangeException(exception.Message +  " CurrentItem does not exist in path specified");
+                        // if path is not specified this will fail.
+                        //Could raise exception. I.e. -> throw new ArgumentOutOfRangeException(exception.Message +  " CurrentItem does not exist in path specified");
                         currentElem = null;
                     }                   
                 }

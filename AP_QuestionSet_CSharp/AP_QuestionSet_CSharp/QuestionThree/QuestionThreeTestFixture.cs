@@ -1,7 +1,6 @@
 ﻿namespace AP_QuestionSet_CSharp.Tests.QuestionThree
 {
-    using AP_QuestionSet_CSharp.Core.QuestionThree;
-    using Newtonsoft.Json;
+    using AP_QuestionSet_CSharp.Core.QuestionThree;    
     using NUnit.Framework;
 
     [TestFixture]
@@ -62,13 +61,13 @@
                                     'Send In the Clones':'Your.He.Is.Here.We'
                                     }";
 
-           // const string expectedJSON = "{\"Test_Name\":\"Hello\",\"Test_Value\":\"There\"}";
+           const string expectedJSON = "{\"Test_Rank\":\"General\",\"Test_Jedi\":\"Kenobi\",\"Grevious\":\"One\",\"SendIntheClones\":\"AreUnderAttack\"}";
 
             // Act
             string actualJSON = JsonMapper.Map(schema, input);
 
             // Assert
-            Assert.AreEqual(actualJSON, "");
+            Assert.AreEqual(actualJSON, expectedJSON);
         }
     }
 }
