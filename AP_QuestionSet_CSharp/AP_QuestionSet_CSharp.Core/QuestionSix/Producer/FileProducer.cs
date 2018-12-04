@@ -1,13 +1,13 @@
-﻿namespace AP_QuestionSet_CSharp.Core.QuestionFive
+﻿namespace AP_QuestionSet_CSharp.Core.QuestionSix
 {
-    using System;    
-    using System.Collections.Generic;
+    using System;
+    using System.Collections.Concurrent;
     using System.IO;
     using System.Threading.Tasks;
 
     public class FileProducer : IFileProducer
     {       
-        public async Task<string> ProduceFileAsync(string inputFile)
+        public async Task ProduceFileAsync(string inputFile, BlockingCollection<string> pipe)
         {
             
             if (string.IsNullOrEmpty(inputFile))
@@ -23,12 +23,11 @@
                 }                
 
                 Console.WriteLine($"Completed Reading File: {inputFile}");
-                return fileText;
+                pipe.Add(fileText);
             }
             catch (AggregateException exception)
             {
-                Console.WriteLine($"Failed to complete reading the file {inputFile} due to exception: {exception.Message} at {exception.StackTrace}");
-                return string.Empty;
+                Console.WriteLine($"Failed to complete reading the file {inputFile} due to exception: {exception.Message} at {exception.StackTrace}");                
             }
         }    
     }    

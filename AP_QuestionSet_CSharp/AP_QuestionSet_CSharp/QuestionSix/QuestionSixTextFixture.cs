@@ -1,15 +1,12 @@
-﻿namespace AP_QuestionSet_CSharp.Tests.QuestionFive
+﻿namespace AP_QuestionSet_CSharp.Tests.QuestionSix
 {
-    using AP_QuestionSet_CSharp.Core.QuestionFive;
+    using AP_QuestionSet_CSharp.Core.QuestionSix;
     using NUnit.Framework;
-    using System;
-    using System.Collections.Generic;
     using System.IO;
-    using System.Text;
-    using System.Threading.Tasks;
+    
 
     [TestFixture]
-    public class QuestionFiveTextFixture
+    public class QuestionSixTestFixture
     {
         private FileAggregator fileAggregator;
         private IFileConsumer fileConsumer;
@@ -30,8 +27,8 @@
         public void RunScenarioAsync()
         {
             // Arrange
-            string sourceDirectory = @"\QuestionFive\Input";
-            string destintationDirectory = @"\QuestionFive\Output\";
+            string sourceDirectory = @"\QuestionSix\Input";
+            string destintationDirectory = @"\QuestionSix\Output\";
             string destinationFile = "Poems.txt";
 
             // Act

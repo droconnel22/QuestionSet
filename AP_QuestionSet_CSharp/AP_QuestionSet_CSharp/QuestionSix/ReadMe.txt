@@ -19,7 +19,8 @@ allows the Producer to inform the collection that it is completed with its input
 are no more items and then it breaks out of the loop.
 
 Performance is stable, the implementation is modern, and more importantly steps are taken to ensure there are as few low 
-level risks as possible.
+level risks as possible. Leveraging using statement is best practice for scope and file ownership management. Using clauses
+would help prevent contention in the case of multiple consumers.
 
 Testing is a bit difficult as either a greater then necessary mocking effort is done, or the code completes without error and the 
 output file is inspected.
@@ -27,6 +28,10 @@ output file is inspected.
 *Be sure to check if all the Input/ and Output/ Files are set to (f4 in VS) copy if newer. Please take any liberties while 
 testing to change the underlying directory paths. It should work as written with no intervention required, but in my experience
 directories can change between machines.
+
+*Update: I originally had one consumer, but after considering the advantages of the the blocking collection it was little
+cost to update the consumer to a collection of tasks, the cost is some code repeation, but the power of the Producer-Consumer
+paradigm is elevated with multiple agents.
 
 
 FYI:

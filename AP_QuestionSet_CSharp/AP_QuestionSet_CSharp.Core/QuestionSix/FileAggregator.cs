@@ -1,4 +1,4 @@
-﻿namespace AP_QuestionSet_CSharp.Core.QuestionFive
+﻿namespace AP_QuestionSet_CSharp.Core.QuestionSix
 {
     using System;
     using System.Linq;
@@ -27,7 +27,7 @@
         public bool Aggregate(string sourceDirectory, string destintationFile)
         {
             if(string.IsNullOrWhiteSpace(sourceDirectory)) throw new ArgumentNullException(nameof(sourceDirectory));
-            if (string.IsNullOrWhiteSpace(destintationFile)) throw new ArgumentNullException(nameof(destintationFile));
+            if(string.IsNullOrWhiteSpace(destintationFile)) throw new ArgumentNullException(nameof(destintationFile));
 
             try
             {
@@ -37,34 +37,23 @@
                 // 1. Create Pipe 
                 pipe = new BlockingCollection<string>();                                             
 
-                // 2. Create and initalize producers.
-                var tasks = new List<Task>();
+                // 2. Create and initalize producers.                
                 var files = Directory.GetFiles(sourceDirectory);
+                var producers = new List<Task>();
                 foreach (var file in files)
-                    tasks.Add(Task.Factory.StartNew(async () =>
-                    {
-                        var fileData = await fileProducer.ProduceFileAsync(file);
-                        pipe.Add(fileData);
-                        if(file == files.Last())
-                        {
-                           pipe.CompleteAdding();
-                        }
-                    }));
+                    producers.Add(fileProducer.ProduceFileAsync(file, pipe));
+              
+                // 3. Create and initalize consumers.                                
+                var consumers = new Task[2] {
+                    Task.Factory.StartNew(() => fileConsumer.ConsumeFileAsync(destintationFile, pipe)),
+                    Task.Factory.StartNew(() => fileConsumer.ConsumeFileAsync(destintationFile, pipe, "consumer 2")) 
+                };
 
-                // 3. Create and initalize consumer.
-                var consumer = Task.Factory.StartNew(async () =>
-                {
-                    while (!pipe.IsCompleted)
-                    {
-                        string fileData;
-                        if (pipe.TryTake(out fileData))
-                            await fileConsumer.ConsumeFileAsync(fileData, destintationFile);
-                    }
-                    Console.WriteLine("Consumer all done!");
-                });
+                // 4. Await all the consumers, once all files are read, inform the blocking collection of completion.
+                Task.Factory.ContinueWhenAll(producers.ToArray(), (p) => pipe.CompleteAdding());
 
-                Task.WaitAll(tasks.ToArray());                
-                consumer.Wait();
+                // 5. Await all consumers to complete writing.
+                Task.WaitAll(consumers);
                 return true;
             }
             catch (AggregateException exception)

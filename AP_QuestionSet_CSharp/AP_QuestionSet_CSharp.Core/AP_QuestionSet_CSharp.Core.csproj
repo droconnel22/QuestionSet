@@ -9,32 +9,32 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="QuestionFive\Output\" />
+    <Folder Include="QuestionSix\Output\" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="QuestionFive\Input\AnnabellLee.txt">
+    <None Update="QuestionSix\Input\AnnabellLee.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="QuestionFive\Input\DeathIsNothingAtAll.txt">
+    <None Update="QuestionSix\Input\DeathIsNothingAtAll.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="QuestionFive\Input\Home.txt">
+    <None Update="QuestionSix\Input\Home.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="QuestionFive\Input\ICarryYourHeartWithMe.txt">
+    <None Update="QuestionSix\Input\ICarryYourHeartWithMe.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="QuestionFive\Input\IF.txt">
+    <None Update="QuestionSix\Input\IF.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="QuestionFive\Input\Invictus.txt">
+    <None Update="QuestionSix\Input\Invictus.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="QuestionFive\Input\PhenomenalWomen.txt">
+    <None Update="QuestionSix\Input\PhenomenalWomen.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="QuestionFive\Input\TheRoadNotTaken.txt">
+    <None Update="QuestionSix\Input\TheRoadNotTaken.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
