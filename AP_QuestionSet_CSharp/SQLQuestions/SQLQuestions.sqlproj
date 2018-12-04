@@ -60,9 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="UserActivity.sql" />
+    <Build Include="UserData.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="QuestionFour.sql" />
     <None Include="ReadMe.txt" />
+    <None Include="QuestionFive.sql" />
   </ItemGroup>
 </Project>
