@@ -18,6 +18,8 @@ input and output. Hopefully you also enjoy good poetry.
 
 The SQL Questions I have included screen shots and the SQL scripts, I did not create a seeding file for the tables.
 
+Please read all ReadMes in the Test Fixtures. They provide important background, my thinking, and extras I want 
+to highlight.
 
 Thank you very much for considering me for your organization, I hope you enjoy the results as much as I had fun
 overcoming them.
