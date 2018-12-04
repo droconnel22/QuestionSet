@@ -33,6 +33,12 @@ directories can change between machines.
 cost to update the consumer to a collection of tasks, the cost is some code repeation, but the power of the Producer-Consumer
 paradigm is elevated with multiple agents.
 
+*Update 2: I decided to refactor in the Blocking Collection into the Producer and Consumer method signatures. The idea being here to
+clean up the code base and eliminating having to wrap a task over another task. An improvment was also made with continueWith as a cleaner
+way to inform the Blocking Collection is done adding items. Refactoring the task method signatures for the consumers also removes the previously
+repeated code, and correctly resuses the code base. Having two consumers is important to demonstrate that the async file writing stream natively
+takes care of managing a shared resource, in this the output file. Demonstartion of optional parameters was also done.
+
 
 FYI:
 https://docs.microsoft.com/en-us/dotnet/standard/io/asynchronous-file-i-o

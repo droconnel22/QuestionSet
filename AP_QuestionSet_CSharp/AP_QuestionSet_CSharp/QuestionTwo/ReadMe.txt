@@ -22,7 +22,7 @@ true
 
 Thoughts: Originally thought a stack would be required, but turns out that the replacing the 
 white spaces simplified the design requirements. Palindromes are tricky because the odd element
-or middle element will have no counterpart, but still qualify as a palindrome. 
+will have no counterpart, but still qualify as a palindrome. 
 
 The implementation compares the polar opposite as the same time, should at any point this requirement fail
 the solution would immediately exit without the cost of evaluating all of N.

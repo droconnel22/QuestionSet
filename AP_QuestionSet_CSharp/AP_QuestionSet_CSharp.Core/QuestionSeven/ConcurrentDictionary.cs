@@ -72,7 +72,7 @@
 
         public TValue GetValue(TKey key)
         {
-            lock(_lock)
+            lock (_lock)
             {
                 return _collection.ContainsKey(key) ? _collection[key] : default(TValue);
             }
