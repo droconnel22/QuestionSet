@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP_QuestionSet_CSharp.Tests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP_QuestionSet_CSharp.Core", "AP_QuestionSet_CSharp.Core\AP_QuestionSet_CSharp.Core.csproj", "{2033E12F-280F-4203-85FA-5DCB61465CD6}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SQLQuestions", "SQLQuestions\SQLQuestions.sqlproj", "{991E7765-78E2-44D6-84FF-E3A120675486}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,12 @@ Global
 		{2033E12F-280F-4203-85FA-5DCB61465CD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2033E12F-280F-4203-85FA-5DCB61465CD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2033E12F-280F-4203-85FA-5DCB61465CD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{991E7765-78E2-44D6-84FF-E3A120675486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{991E7765-78E2-44D6-84FF-E3A120675486}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{991E7765-78E2-44D6-84FF-E3A120675486}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{991E7765-78E2-44D6-84FF-E3A120675486}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{991E7765-78E2-44D6-84FF-E3A120675486}.Release|Any CPU.Build.0 = Release|Any CPU
+		{991E7765-78E2-44D6-84FF-E3A120675486}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

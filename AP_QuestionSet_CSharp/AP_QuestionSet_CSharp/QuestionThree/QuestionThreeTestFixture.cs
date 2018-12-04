@@ -34,7 +34,7 @@
         }
 
         [Test]
-        public void Convert_JSON_to_Object_Attack_On_Upatu()
+        public void Convert_JSON_to_Object_Attack_On_Utapau()
         {
             // Arrange
             const string input = @"{

@@ -5,3 +5,5 @@ the ability to
 add, update, delete entries in the dictionary 
 
 in a thread-safe manner.
+
+Thoughts: 
